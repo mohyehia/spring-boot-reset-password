@@ -1,0 +1,30 @@
+h1 {
+    color: #78ab46;
+}
+.col-md-4{
+    padding: 20px;
+    background-color: white;
+}
+body {
+    background-color: #efefef;
+}
+
+footer {
+    position: fixed;
+    height: 50px;
+    bottom: 0;
+    width: 100%;
+    background-color: #ccc
+}
+
+footer p {
+    padding: 15px;
+}
+
+.error-message {
+    color: #a94442;
+}
+
+.error-message:first-letter {
+    text-transform: capitalize;
+}
