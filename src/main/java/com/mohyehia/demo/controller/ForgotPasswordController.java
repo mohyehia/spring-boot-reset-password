@@ -58,7 +58,7 @@ public class ForgotPasswordController {
         }
         User user = userService.findByEmail(passwordForgot.getEmail());
         if(user == null){
-            result.reject("email", messageSource.getMessage("EMAIL_NOT_FOUND", new Object[]{}, Locale.ENGLISH));
+            model.addAttribute("emailError", messageSource.getMessage("EMAIL_NOT_FOUND", new Object[]{}, Locale.ENGLISH));
             return "forgot-password";
         }
         // proceed to send email with link to reset password to this email address

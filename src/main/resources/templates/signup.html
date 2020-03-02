@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.2.1/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/5.12.0/css/all.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/main.css}">
+    <title>Create New Account</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="text-center">
+                        <h3><i class="fas fa-lock" style="font-size:2em;"></i></h3>
+                        <h2 class="text-center">Create New Account</h2>
+                        <div class="panel-body">
+
+                            <div th:if="${success}">
+                                <div class="alert alert-success"><span th:text="${success}"></span></div>
+                            </div>
+                            <div th:if="${error}">
+                                <div class="alert alert-danger"><span th:text="${error}"></span></div>
+                            </div>
+
+                            <form th:action="@{/signup}" th:object="${user}" method="post">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-envelope"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="First Name"
+                                               aria-describedby="basic-addon1" id="firstName"
+                                               th:field="*{firstName}" th:errorClass="is-invalid"/>
+                                    </div>
+                                    <span class="text-danger"
+                                          th:if="${#fields.hasErrors('firstName')}"
+                                          th:errors="*{firstName}"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon2"><i class="fas fa-envelope"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Last Name"
+                                               aria-describedby="basic-addon1" id="lastName"
+                                               th:field="*{lastName}" th:errorClass="is-invalid"/>
+                                    </div>
+                                    <span class="text-danger"
+                                          th:if="${#fields.hasErrors('lastName')}"
+                                          th:errors="*{lastName}"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon3"><i class="fas fa-envelope"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Email Address"
+                                               aria-describedby="basic-addon3" id="email"
+                                               th:field="*{email}" th:errorClass="is-invalid"/>
+                                    </div>
+                                    <span class="text-danger"
+                                          th:if="${#fields.hasErrors('email')}"
+                                          th:errors="*{email}"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon4"><i class="fas fa-envelope"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Password"
+                                               aria-describedby="basic-addon4" id="password"
+                                               th:field="*{password}" th:errorClass="is-invalid"/>
+                                    </div>
+                                    <span class="text-danger"
+                                          th:if="${#fields.hasErrors('password')}"
+                                          th:errors="*{password}"></span>
+                                </div>
+                                <hr>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success btn-block">Register</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    Already registered? <a href="/" th:href="@{/login}">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" th:src="@{webjars/jquery/3.4.1/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+</body>
+</html>
